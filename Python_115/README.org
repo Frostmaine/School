@@ -1,16 +1,15 @@
 #+TITLE: Python 115 Class Notes
 #+AUTHOR: Matthew Yackiel
-#+PROPERTY: header-args :cache yes :mkdirp yes :results replace :exports both
+#+PROPERTY: header-args :cache yes :mkdirp yes :results replace :exports both 
 
 * Table of Contents :toc:
-- [[#python-115][Python 115]]
-  - [[#hello-world][Hello World!]]
+- [[#hello-world][Hello World!]]
   - [[#interactive-terminal][Interactive Terminal]]
   - [[#back-to-the-file][Back to the file]]
   - [[#executing-from-a-text-editor][Executing from a text editor]]
+  - [[#some-exercises-with-pycharm][Some exercises with Pycharm]]
 
-* Python 115
-** Hello World!
+* Hello World!
 
 The following code blocks illustrate the evolution of test.py from class.
 
@@ -29,7 +28,7 @@ You can open a terminal (command prompt) and run "python".  This will pull you i
 
 ** Back to the file
 
-#+begin_src python :results output :tangle ./Projects/Hello_World/test.py
+#+begin_src python :tangle ./Projects/Hello_World/test.py :results output
   print("Hello Python Programmers")
   print("My name is Matthew Yackiel")
 #+end_src
@@ -41,9 +40,19 @@ This is the output when run from the terminal.  Be sure to navigate to the locat
 : My name is Matthew Yackiel
 
 ** Executing from a text editor
-You can also use any type of text editor to write code files.  That is all programs are, just text that gets interpreted by the language.  Pycharm does the same thing just with alot of extra bells and wistles.
+You can also use any type of text editor to write code files.  That is all programs are, just text that gets interpreted by the language(python).  Pycharm does the same thing just with alot of extra bells and wistles.
 
-#+begin_src python :results output :tangle ./Projects/Hello_World/test2.py
+#+begin_src python :tangle ./Projects/Hello_World/test2.py :results output
   print("Hello")
 #+end_src
 
+#+RESULTS:
+: Hello
+
+** Some exercises with Pycharm
+#+begin_src python :results output
+print(" this is a python programming class")
+#+end_src
+
+#+RESULTS:
+:  this is a python programming class
