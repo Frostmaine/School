@@ -1,8 +1,13 @@
 #+TITLE: Python 115 Class Notes
 #+AUTHOR: Matthew Yackiel
-#+PROPERTY: header-args :cache yes :mkdirp yes :results replace
+#+PROPERTY: header-args :cache yes :mkdirp yes :results replace :exports both
 
 * Table of Contents :toc:
+- [[#python-115][Python 115]]
+  - [[#hello-world][Hello World!]]
+  - [[#interactive-terminal][Interactive Terminal]]
+  - [[#back-to-the-file][Back to the file]]
+  - [[#executing-from-a-text-editor][Executing from a text editor]]
 
 * Python 115
 ** Hello World!
