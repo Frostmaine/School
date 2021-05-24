@@ -1,0 +1,44 @@
+#+TITLE: Python 115 Class Notes
+#+AUTHOR: Matthew Yackiel
+#+PROPERTY: header-args :cache yes :mkdirp yes :results replace
+
+* Table of Contents :toc:
+
+* Python 115
+** Hello World!
+
+The following code blocks illustrate the evolution of test.py from class.
+
+The typical hello world program written in python.  The print function will output to the standard output i.e. the terminal output
+
+#+begin_src python :results output
+  print("Hello Python Programmers")
+#+end_src
+
+#+RESULTS:
+: Hello Python Programmers
+
+** Interactive Terminal
+
+You can open a terminal (command prompt) and run "python".  This will pull you into the python interactive mode.  You will be able to run python code interactively.
+
+** Back to the file
+
+#+begin_src python :results output :tangle ./Projects/Hello_World/test.py
+  print("Hello Python Programmers")
+  print("My name is Matthew Yackiel")
+#+end_src
+
+This is the output when run from the terminal.  Be sure to navigate to the location of your .py file before running "python <name of file>"
+
+#+RESULTS:
+: Hello Python Programmers
+: My name is Matthew Yackiel
+
+** Executing from a text editor
+You can also use any type of text editor to write code files.  That is all programs are, just text that gets interpreted by the language.  Pycharm does the same thing just with alot of extra bells and wistles.
+
+#+begin_src python :results output :tangle ./Projects/Hello_World/test2.py
+  print("Hello")
+#+end_src
+
