@@ -247,7 +247,6 @@ This is the most difficult to find.  Pycharm cannot help you with this (OUTSIDE 
 : 45.5
 : 5.0
 
-
 * Input
 :PROPERTIES:
 :header-args: :results output :tangle ./Projects/Module_1/Lectures.py
