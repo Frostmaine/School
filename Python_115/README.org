@@ -8,9 +8,24 @@
   - [[#back-to-the-file][Back to the file]]
   - [[#executing-from-a-text-editor][Executing from a text editor]]
   - [[#some-exercises-with-pycharm][Some exercises with Pycharm]]
+  - [[#comments][Comments]]
+- [[#variables][Variables]]
+  - [[#integer-values][Integer Values]]
+  - [[#integer-operators][Integer operators]]
+  - [[#string-values][String Values]]
+  - [[#variable-naming-convention][Variable Naming Convention]]
+  - [[#assigning-multiple-variables-in-one-statement][Assigning Multiple Variables in one statement]]
+- [[#errors][Errors]]
+  - [[#syntax-errors][Syntax Errors]]
+  - [[#runtime-errors][Runtime Errors]]
+  - [[#logical-errors][Logical Errors]]
+- [[#input][Input]]
+  - [[#the-input-function][The input function]]
 
 * Hello World!
-
+:PROPERTIES:
+:header-args: :results output :tangle ./Projects/Module_1/Lectures.py
+:END:
 The following code blocks illustrate the evolution of test.py from class.
 
 The typical hello world program written in python.  The print function will output to the standard output i.e. the terminal output
@@ -28,7 +43,7 @@ You can open a terminal (command prompt) and run "python".  This will pull you i
 
 ** Back to the file
 
-#+begin_src python :tangle ./Projects/Hello_World/test.py :results output
+#+begin_src python
   print("Hello Python Programmers")
   print("My name is Matthew Yackiel")
 #+end_src
@@ -42,7 +57,7 @@ This is the output when run from the terminal.  Be sure to navigate to the locat
 ** Executing from a text editor
 You can also use any type of text editor to write code files.  That is all programs are, just text that gets interpreted by the language(python).  Pycharm does the same thing just with alot of extra bells and wistles.
 
-#+begin_src python :tangle ./Projects/Hello_World/test2.py :results output
+#+begin_src python
   print("Hello")
 #+end_src
 
@@ -50,9 +65,216 @@ You can also use any type of text editor to write code files.  That is all progr
 : Hello
 
 ** Some exercises with Pycharm
-#+begin_src python :results output
-print(" this is a python programming class")
+#+begin_src python :results output :tangle ./Projects/Module_1/Lectures.py
+  print("-----------------------------------")
+  print(" this is a python programming class")
+  print("-----------------------------------")
 #+end_src
 
 #+RESULTS:
 :  this is a python programming class
+
+** Comments
+Comments are lines in your program that are not read at all by the language.  They are preceded by the '#' character.  Use these to write notes about different parts of your program to organize your thoughts so that when you return to them after a break from work you can still read what you were writing.  More importantly they are used to document your code to that others can read them
+
+#+begin_src python :tangle ./Projects/Module_1/Lectures.py
+# variable: is a container that holds values
+#+end_src
+
+Below is a paragraph comment. It is used for muliline comments
+
+#+begin_src python
+  '''
+    This is a block Comment
+    It is Multiple lines
+    Yay look at me go
+    She
+    Sells
+    Sea
+    Shells
+    by
+    the
+    Sea
+    Shore
+  '''
+#+end_src
+
+* Variables
+:PROPERTIES:
+:header-args: :results output :tangle ./Projects/Module_1/Lectures.py
+:END:
+Variables are a structure that contains data.  Each value has a type that is assigned when you first assign it a value.  ex.
+
+** Integer Values
+
+#+begin_src python 
+x = 100 # numeric value
+# display the variable
+print(x)
+#+end_src
+
+#+RESULTS[a774b545e2068a57e00a45b73b03cb75e0fb83c2]:
+: 100
+
+** Integer operators
+
+#+begin_src python
+  # + operator is used with numbers to perform summation
+  print(195 + 61)
+#+end_src
+
+#+RESULTS:
+: 256
+
+** String Values
+
+Text is enclosed in a pair of single OR double quotes.  This seperates String Values from code structures.
+
+#+begin_src python 
+# Example in double quotes 
+y = "Hello"
+print(y)
+# Example in single quotes
+z = "Mahmoud"
+print(z)
+#+end_src
+
+#+RESULTS:
+: Hello
+: Mahmoud
+
+*** String Concatenation
+#+begin_src python
+  # + operator is used to concatenate 2 strings
+  first_name = "Mahmoud"
+  last_name = "Darwich"
+  print(first_name + " " + last_name)
+  initial =" K "
+  print(first_name + initial + last_name)
+  print(first_name + " L " + last_name)
+
+  # using + operator with a string and a number, is illegal
+  mother = "Christi is"
+  # print(mother + 45) is illegal
+#+end_src
+
+#+RESULTS:
+
+*** Print strings with other types
+We use commas to seperate different types in the print function
+
+#+begin_src python
+  # if it is required to combine a string with a number
+  # the above is fixed with
+  print(mother, 45, "years old")
+#+end_src
+
+#+RESULTS:
+
+** Variable Naming Convention
+#+begin_src python
+  name="Mahmoud"
+  Name='Laura'
+  NAME='Lisa'  # these are all valid unique variables
+  # variabls name should be started with letters or _ only
+  # variables cannot be started with numbers
+  # variables should contain only letters, numbers, and _
+
+  # 8name="Darwich" is illegal, cannot start with number
+  _name = "Chris" # is legal
+  cat24 = "Mikky" # is legal
+  # first name = "Joe" spaces are illegal
+  # # first-name = "Robert" is illegal no hyphen
+ #+end_src
+
+ #+RESULTS:
+
+** Assigning Multiple Variables in one statement
+
+#+begin_src python
+  # Assigning multiple values to variables in one statement
+  Fruit1 = Fruit2 = Fruit3 = "Apple", "Orange", "Banana"
+  print(Fruit1)
+  print(Fruit2)
+  print(Fruit3)
+#+end_src
+
+#+RESULTS:
+: ('Apple', 'Orange', 'Banana')
+: ('Apple', 'Orange', 'Banana')
+: ('Apple', 'Orange', 'Banana')
+
+*** Similarly Assign 1 value to multiple variables
+
+#+begin_src python
+  # assign on single value to multiple variables
+  fruit4 = fruit5 = fruit6 = "Kiwi"
+  print(fruit5)
+#+end_src
+
+#+RESULTS:
+: Kiwi
+
+* Errors
+:PROPERTIES:
+:header-args: :results output :tangle ./Projects/Module_1/Lectures.py
+:END:
+** Syntax Errors
+These are easy to catch errors as they are highlighted by PyCharm.  Look for Red (in light theme) underlines for errors.
+
+#+begin_src python
+# Example: 100x = 250 syntax error because the variable names start with a number. it generates red underline
+#+end_src
+
+** Runtime Errors
+These errors are found after you execute a file.  It will appear in the output as a Traceback error with an explanation of the error type at the bottom of the error.
+
+#+begin_src python
+# Example: print(100/0) this is a mathematical impossibility, we cannot divide numbers by 0
+#+end_src
+
+** Logical Errors
+This is the most difficult to find.  Pycharm cannot help you with this (OUTSIDE OF THE DEBUGGER WHICH IS TOO ADNAVCED FOR THIS COURSE).  This is found when you get results from your program that are valid, however they are unexpected/incorrect results.
+
+#+begin_src python 
+  # add 45 + 5 and then divide by 5.
+  print(45+5/ 10)
+  # python takes order of operations very literally.  follow PEMDAS
+  print((45+5)/10)
+#+end_src
+
+#+RESULTS[160206fcf99dbc80921f9ed1ba87278f2bd46f68]:
+: 45.5
+: 5.0
+
+
+* Input
+:PROPERTIES:
+:header-args: :results output :tangle ./Projects/Module_1/Lectures.py
+:END:
+** The input function
+This function will ask the user for input allowing interactive input.
+
+#+begin_src python :results silent
+  # input() is a function used to get space seperated values from the user from the keyboard (always returns the value as a string)
+  get_input = input("Enter your name")
+r
+  print("get_input is:", get_input)
+#+end_src
+
+*** Entering Non-Stings
+ The input function always assumes we are typing in a string. So if we want to get number values only we must wrap the input() function in the int() function
+#+begin_src python
+'''
+  number1 = input("Enter a number")
+  number2 = input("Enter another number")
+  # add number1 and number2
+  print(number1 + number2) # this will output 55 because number1 and number2 are strings returned by the input function
+'''
+  # add number1 to number 2 properly
+  # the int function is used to convert the string from input to a number
+  number1 = int(input("Enter a number"))
+  number2 = int(input("Enter another number"))
+  print(number1 + number2)
+#+end_src
+
