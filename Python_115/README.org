@@ -3,28 +3,25 @@
 #+PROPERTY: header-args :cache yes :mkdirp yes :results replace :exports both 
 
 * Table of Contents :toc:
-- [[#hello-world][Hello World!]]
+- [[#module-1][Module 1]]
+  - [[#hello-world][Hello World!]]
   - [[#interactive-terminal][Interactive Terminal]]
   - [[#back-to-the-file][Back to the file]]
   - [[#executing-from-a-text-editor][Executing from a text editor]]
   - [[#some-exercises-with-pycharm][Some exercises with Pycharm]]
   - [[#comments][Comments]]
-- [[#variables][Variables]]
-  - [[#integer-values][Integer Values]]
-  - [[#integer-operators][Integer operators]]
-  - [[#string-values][String Values]]
-  - [[#variable-naming-convention][Variable Naming Convention]]
-  - [[#assigning-multiple-variables-in-one-statement][Assigning Multiple Variables in one statement]]
-- [[#errors][Errors]]
-  - [[#syntax-errors][Syntax Errors]]
-  - [[#runtime-errors][Runtime Errors]]
-  - [[#logical-errors][Logical Errors]]
-- [[#input][Input]]
-  - [[#the-input-function][The input function]]
+  - [[#variables][Variables]]
+  - [[#errors][Errors]]
+  - [[#input][Input]]
+  - [[#module-1-practice-exercises][Module 1 Practice Exercises]]
+- [[#module-2--data-types][Module 2 : Data Types]]
+  - [[#identify-data-types][Identify Data Types]]
+  - [[#numeric-types][Numeric Types]]
 
-* Hello World!
+* Module 1
+** Hello World!
 :PROPERTIES:
-:header-args: :results output :tangle ./Projects/Module_1/Lectures.py
+:header-args: :results output :tangle ./Module_1/Lectures.py
 :END:
 The following code blocks illustrate the evolution of test.py from class.
 
@@ -65,7 +62,7 @@ You can also use any type of text editor to write code files.  That is all progr
 : Hello
 
 ** Some exercises with Pycharm
-#+begin_src python :results output :tangle ./Projects/Module_1/Lectures.py
+#+begin_src python :results output :tangle ./Module_1/Lectures.py
   print("-----------------------------------")
   print(" this is a python programming class")
   print("-----------------------------------")
@@ -77,11 +74,11 @@ You can also use any type of text editor to write code files.  That is all progr
 ** Comments
 Comments are lines in your program that are not read at all by the language.  They are preceded by the '#' character.  Use these to write notes about different parts of your program to organize your thoughts so that when you return to them after a break from work you can still read what you were writing.  More importantly they are used to document your code to that others can read them
 
-#+begin_src python :tangle ./Projects/Module_1/Lectures.py
+#+begin_src python :tangle ./Module_1/Lectures.py
 # variable: is a container that holds values
 #+end_src
 
-Below is a paragraph comment. It is used for muliline comments
+Below is a docstring comment. It is used in the beginning of a program to document the program.  Can be used for multiline comments.
 
 #+begin_src python
   '''
@@ -99,13 +96,13 @@ Below is a paragraph comment. It is used for muliline comments
   '''
 #+end_src
 
-* Variables
+** Variables
 :PROPERTIES:
-:header-args: :results output :tangle ./Projects/Module_1/Lectures.py
+:header-args: :results output :tangle ./Module_1/Lectures.py
 :END:
 Variables are a structure that contains data.  Each value has a type that is assigned when you first assign it a value.  ex.
 
-** Integer Values
+*** Integer Values
 
 #+begin_src python 
 x = 100 # numeric value
@@ -116,7 +113,7 @@ print(x)
 #+RESULTS[a774b545e2068a57e00a45b73b03cb75e0fb83c2]:
 : 100
 
-** Integer operators
+*** Integer operators
 
 #+begin_src python
   # + operator is used with numbers to perform summation
@@ -126,7 +123,7 @@ print(x)
 #+RESULTS:
 : 256
 
-** String Values
+*** String Values
 
 Text is enclosed in a pair of single OR double quotes.  This seperates String Values from code structures.
 
@@ -143,7 +140,7 @@ print(z)
 : Hello
 : Mahmoud
 
-*** String Concatenation
+**** String Concatenation
 #+begin_src python
   # + operator is used to concatenate 2 strings
   first_name = "Mahmoud"
@@ -160,7 +157,7 @@ print(z)
 
 #+RESULTS:
 
-*** Print strings with other types
+**** Print strings with other types
 We use commas to seperate different types in the print function
 
 #+begin_src python
@@ -171,7 +168,7 @@ We use commas to seperate different types in the print function
 
 #+RESULTS:
 
-** Variable Naming Convention
+*** Variable Naming Convention
 #+begin_src python
   name="Mahmoud"
   Name='Laura'
@@ -189,7 +186,7 @@ We use commas to seperate different types in the print function
 
  #+RESULTS:
 
-** Assigning Multiple Variables in one statement
+*** Assigning Multiple Variables in one statement
 
 #+begin_src python
   # Assigning multiple values to variables in one statement
@@ -204,7 +201,7 @@ We use commas to seperate different types in the print function
 : ('Apple', 'Orange', 'Banana')
 : ('Apple', 'Orange', 'Banana')
 
-*** Similarly Assign 1 value to multiple variables
+**** Similarly Assign 1 value to multiple variables
 
 #+begin_src python
   # assign on single value to multiple variables
@@ -215,25 +212,25 @@ We use commas to seperate different types in the print function
 #+RESULTS:
 : Kiwi
 
-* Errors
+** Errors
 :PROPERTIES:
-:header-args: :results output :tangle ./Projects/Module_1/Lectures.py
+:header-args: :results output :tangle ./Module_1/Lectures.py
 :END:
-** Syntax Errors
+*** Syntax Errors
 These are easy to catch errors as they are highlighted by PyCharm.  Look for Red (in light theme) underlines for errors.
 
 #+begin_src python
 # Example: 100x = 250 syntax error because the variable names start with a number. it generates red underline
 #+end_src
 
-** Runtime Errors
+*** Runtime Errors
 These errors are found after you execute a file.  It will appear in the output as a Traceback error with an explanation of the error type at the bottom of the error.
 
 #+begin_src python
 # Example: print(100/0) this is a mathematical impossibility, we cannot divide numbers by 0
 #+end_src
 
-** Logical Errors
+*** Logical Errors
 This is the most difficult to find.  Pycharm cannot help you with this (OUTSIDE OF THE DEBUGGER WHICH IS TOO ADNAVCED FOR THIS COURSE).  This is found when you get results from your program that are valid, however they are unexpected/incorrect results.
 
 #+begin_src python 
@@ -247,11 +244,11 @@ This is the most difficult to find.  Pycharm cannot help you with this (OUTSIDE 
 : 45.5
 : 5.0
 
-* Input
+** Input
 :PROPERTIES:
-:header-args: :results output :tangle ./Projects/Module_1/Lectures.py
+:header-args: :results output :tangle ./Module_1/Lectures.py
 :END:
-** The input function
+*** The input function
 This function will ask the user for input allowing interactive input.
 
 #+begin_src python :results silent
@@ -261,7 +258,7 @@ r
   print("get_input is:", get_input)
 #+end_src
 
-*** Entering Non-Stings
+**** Entering Non-Stings
  The input function always assumes we are typing in a string. So if we want to get number values only we must wrap the input() function in the int() function
 #+begin_src python
 '''
@@ -277,3 +274,130 @@ r
   print(number1 + number2)
 #+end_src
 
+** Module 1 Practice Exercises
+#+begin_src python
+  '''
+  Matthew Yackiel
+  Python 115
+  Module 1 Exercises
+  '''
+
+#+end_src
+
+#+begin_src python :tangle ./Module_1/practice_exercise.py :results output
+  # question 1
+  print("Welcome to Python")
+  print("Welcome to Computer Science")
+  print("Programming is fun\n")
+
+  # question 2
+  print("Welcome to Python\n"*5)
+
+  # question 3
+  print("a\t a^2\t a^3")
+  print(1,"\t",1**2,"\t",1**3)
+  print(2,"\t",2**2,"\t",2**3)
+  print(3,"\t",3**2,"\t",3**3)
+  print(4,"\t",4**2,"\t",4**3,"\n")
+
+  # question 4
+  print((9.5*4.5-2.5*3)/(45.5-3.5),"\n")
+
+  # question 5
+  PI = 3.14
+  area = 5.5**2*PI
+  perimeter = 5.5*PI*2
+  print("area =", area)
+  print("area =", perimeter)
+
+  print()
+
+  # question 6
+  width = 4.5
+  height = 7.9
+  area = width * height
+  perimeter = 2 * (width + height)
+  print("area =", area)
+  print("perimeter =", perimeter)
+
+  print()
+
+  # question 7
+  kilometers = 14
+  minutes = 45.5
+  mph = (kilometers/1.6)/(minutes/60)
+  print("Speed in mph ", round(mph, 3))
+
+#+end_src
+
+#+RESULTS[e233244f7fcb0a4942fa3121344e37aa5195e9f6]:
+#+begin_example
+Welcome to Python
+Welcome to Computer Science
+Programming is fun
+
+Welcome to Python
+Welcome to Python
+Welcome to Python
+Welcome to Python
+Welcome to Python
+
+a	 a^2	 a^3
+1 	 1 	 1
+2 	 4 	 8
+3 	 9 	 27
+4 	 16 	 64 
+
+0.8392857142857143 
+
+area = 94.985
+area = 34.54
+
+area = 35.550000000000004
+perimeter = 24.8
+
+Speed in mph  11.538
+#+end_example
+
+
+* Module 2 : Data Types
+:PROPERTIES:
+:header-args: :results output :tangle ./Module_2/Lecture.py
+:END:
+** Identify Data Types
+#+begin_src python
+  # to identify any data type, you can use a function type()
+  x = 100
+  print("The type of x is:", type(x))
+  y = 100.56
+  print("The type of x is:", type(y))
+#+end_src
+
+#+RESULTS:
+: The type of x is: <class 'int'>
+: The type of x is: <class 'float'>
+
+** Numeric Types
+*** Integer
+Any positive or negative number of infinite length
+#+begin_src python
+  # example of integer
+  m = -238947020934
+  print(type(m))
+#+end_src
+*** float
+#+begin_src python
+  # example of a float number (rational number)
+  n = 35.239847
+  print(type(n))
+#+end_src
+*** Complex
+Complex numbers in the complex name of the form (real +- real * complex)
+#+begin_src python
+  # example of complex numbers
+  z = 1 + 100j
+  print(type(z))
+#+end_src
+
+#+RESULTS:
+: <class 'complex'>

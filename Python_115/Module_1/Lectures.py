@@ -1,29 +1,10 @@
 print("Hello Python Programmers")
 
-print("Hello Python Programmers")
-print("My name is Matthew Yackiel")
-
-print("Hello")
-
 print("-----------------------------------")
 print(" this is a python programming class")
 print("-----------------------------------")
 
 # variable: is a container that holds values
-
-'''
-  This is a block Comment
-  It is Multiple lines
-  Yay look at me go
-  She
-  Sells
-  Sea
-  Shells
-  by
-  the
-  Sea
-  Shore
-'''
 
 x = 100 # numeric value
 # display the variable
@@ -88,8 +69,9 @@ print(45+5/ 10)
 print((45+5)/10)
 
 # input() is a function used to get space seperated values from the user from the keyboard (always returns the value as a string)
-get_input = input("Enter your name")
-print("get_input is:", get_input)
+  get_input = input("Enter your name")
+r
+  print("get_input is:", get_input)
 
 '''
   number1 = input("Enter a number")
@@ -97,8 +79,8 @@ print("get_input is:", get_input)
   # add number1 and number2
   print(number1 + number2) # this will output 55 because number1 and number2 are strings returned by the input function
 '''
-# add number1 to number 2 properly
-# the int function is used to convert the string from input to a number
-number1 = int(input("Enter a number"))
-number2 = int(input("Enter another number"))
-print(number1 + number2)
+  # add number1 to number 2 properly
+  # the int function is used to convert the string from input to a number
+  number1 = int(input("Enter a number"))
+  number2 = int(input("Enter another number"))
+  print(number1 + number2)
