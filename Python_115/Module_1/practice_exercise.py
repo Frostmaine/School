@@ -1,3 +1,9 @@
+'''
+Matthew Yackiel
+Python 115
+Module 1 Exercises
+'''
+
 # question 1
 print("Welcome to Python")
 print("Welcome to Computer Science")

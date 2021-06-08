@@ -1,10 +1,29 @@
 print("Hello Python Programmers")
 
+print("Hello Python Programmers")
+print("My name is Matthew Yackiel")
+
+print("Hello")
+
 print("-----------------------------------")
 print(" this is a python programming class")
 print("-----------------------------------")
 
 # variable: is a container that holds values
+
+'''
+  This is a block Comment
+  It is Multiple lines
+  Yay look at me go
+  She
+  Sells
+  Sea
+  Shells
+  by
+  the
+  Sea
+  Shore
+'''
 
 x = 100 # numeric value
 # display the variable

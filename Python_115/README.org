@@ -1,9 +1,9 @@
 #+TITLE: Python 115 Class Notes
 #+AUTHOR: Matthew Yackiel
-#+PROPERTY: header-args :cache yes :mkdirp yes :results replace :exports both 
+#+PROPERTY: header-args mkdirp yes :eval none
 
 * Table of Contents :toc:
-- [[#module-1][Module 1]]
+- [[#module][Module]]
   - [[#hello-world][Hello World!]]
   - [[#interactive-terminal][Interactive Terminal]]
   - [[#back-to-the-file][Back to the file]]
@@ -17,14 +17,21 @@
 - [[#module-2--data-types][Module 2 : Data Types]]
   - [[#identify-data-types][Identify Data Types]]
   - [[#numeric-types][Numeric Types]]
+  - [[#strings][Strings]]
+  - [[#logical-operators][Logical Operators]]
+  - [[#practice-exercise][Practice Exercise]]
+- [[#module-3-control-statements][Module 3: Control Statements]]
+  - [[#if-statements][If Statements]]
+  - [[#iteration][Iteration]]
+  - [[#iteration-continued][Iteration Continued]]
+- [[#module-4-functions][Module 4: Functions]]
 
-* Module 1
-** Hello World!
+* Module
 :PROPERTIES:
-:header-args: :results output :tangle ./Module_1/Lectures.py
+:header-args: :tangle ./Module_1/Lectures.py
 :END:
+** Hello World!
 The following code blocks illustrate the evolution of test.py from class.
-
 The typical hello world program written in python.  The print function will output to the standard output i.e. the terminal output
 
 #+begin_src python :results output
@@ -45,6 +52,9 @@ You can open a terminal (command prompt) and run "python".  This will pull you i
   print("My name is Matthew Yackiel")
 #+end_src
 
+#+RESULTS[e81c7ceea7f91ae0ed3c42d4fc9933d01ed743f2]:
+: None
+
 This is the output when run from the terminal.  Be sure to navigate to the location of your .py file before running "python <name of file>"
 
 #+RESULTS:
@@ -58,8 +68,8 @@ You can also use any type of text editor to write code files.  That is all progr
   print("Hello")
 #+end_src
 
-#+RESULTS:
-: Hello
+#+RESULTS[e49a9dd31026e9d45573c7c1091fbd2e0bc248f2]:
+: None
 
 ** Some exercises with Pycharm
 #+begin_src python :results output :tangle ./Module_1/Lectures.py
@@ -68,8 +78,10 @@ You can also use any type of text editor to write code files.  That is all progr
   print("-----------------------------------")
 #+end_src
 
-#+RESULTS:
+#+RESULTS[2313e4a2b7126db6e5b875585a15882806903762]:
+: -----------------------------------
 :  this is a python programming class
+: -----------------------------------
 
 ** Comments
 Comments are lines in your program that are not read at all by the language.  They are preceded by the '#' character.  Use these to write notes about different parts of your program to organize your thoughts so that when you return to them after a break from work you can still read what you were writing.  More importantly they are used to document your code to that others can read them
@@ -78,7 +90,10 @@ Comments are lines in your program that are not read at all by the language.  Th
 # variable: is a container that holds values
 #+end_src
 
+#+RESULTS[176eebd4cbe99a8b3d2829f2b8597926781b4084]:
+
 Below is a docstring comment. It is used in the beginning of a program to document the program.  Can be used for multiline comments.
+
 
 #+begin_src python
   '''
@@ -156,6 +171,9 @@ print(z)
 #+end_src
 
 #+RESULTS:
+: Mahmoud Darwich
+: Mahmoud K Darwich
+: Mahmoud L Darwich
 
 **** Print strings with other types
 We use commas to seperate different types in the print function
@@ -275,7 +293,7 @@ r
 #+end_src
 
 ** Module 1 Practice Exercises
-#+begin_src python
+#+begin_src python :tangle ./Module_1/practice_exercise.py
   '''
   Matthew Yackiel
   Python 115
@@ -362,7 +380,7 @@ Speed in mph  11.538
 
 * Module 2 : Data Types
 :PROPERTIES:
-:header-args: :results output :tangle ./Module_2/Lecture.py
+:header-args: :tangle ./Module_2/lecture.py
 :END:
 ** Identify Data Types
 #+begin_src python
@@ -385,12 +403,20 @@ Any positive or negative number of infinite length
   m = -238947020934
   print(type(m))
 #+end_src
+
+#+RESULTS:
+: <class 'int'>
+
 *** float
 #+begin_src python
   # example of a float number (rational number)
   n = 35.239847
   print(type(n))
 #+end_src
+
+#+RESULTS:
+: <class 'float'>
+
 *** Complex
 Complex numbers in the complex name of the form (real +- real * complex)
 #+begin_src python
@@ -401,3 +427,549 @@ Complex numbers in the complex name of the form (real +- real * complex)
 
 #+RESULTS:
 : <class 'complex'>
+
+#+begin_src python
+num4 = 45 + 10j # j is the imaginary part
+#+end_src
+
+#+RESULTS:
+
+*** Scientific Notation
+Numbers can be written in scientific notation as follows
+#+begin_src python
+  num1 = 145e5 # 145*10^5
+  print(num1)
+
+  num2 = 3.4567
+  num3 = 34567e-4
+  print(num3)
+#+end_src
+
+#+RESULTS:
+: 14500000.0
+: 3.4567
+
+*** Converting Between Numerical Types
+Convert a number, use function int(), float(), and complex()   NOTE: COMPLEX CANNOT BE CONVERTED TO FLOAT OR INT
+#+begin_src python
+  num5 = 14.67
+  # convert to integer
+  print(int(num5))
+  num6 = 178
+  #convert to float
+  print(float(num6))
+  #convert num5 and num6 to complex
+  print(complex(num5))
+  print(complex(num6))
+  num7 = 23 + 65j
+  # converting to int of float produces an error
+  #print(int(num7))
+#+end_src
+
+#+RESULTS:
+: 14
+: 178.0
+: (14.67+0j)
+: (178+0j)
+
+*** Alternate Number Systems
+#+begin_src python
+  # decimal numbers are 0 to 9
+  # binary numbers are 0 and 1 only
+  # Octal numbers are 0 to 7
+  # Hexadecimal numbers are 0 - 9 and then A - F
+  # to represent a binary number we preceed the number by 0b
+  # to represent an octal number we preceed the number by 0o
+  # to represent a hexadecimal number we preceed the number hy 0x
+  num9 = 0b1110111
+  print(num9) # this will print the binary number in a decimal form
+  num10 = 0o1763
+  print(num10)
+  num11 = 0xABEF1
+  print(num11)
+
+  number1 = 755
+  # convert decimal to binary, use bin() function
+  num12 = bin(number1)
+  print(num12)
+  # convert decimal number to octal use oct() function
+  num13 = oct(number1)
+  print(num14)
+  # convert decimal number to hexadecimal, use hex() function
+  # example number2=ox12ac56, convert it to an octal number
+  number2 = 0x12ac56
+  print(oct(number2))
+  # convert number 2 to a binary number
+  print(bin(number2))
+  # convert number 2 to a decimal number
+  print(number2)
+ #+end_src
+
+ #+RESULTS:
+
+*** Numeric Operators
+**** Floor Division
+#+begin_src python
+  # floor division, it removes desimal precision from the numbers
+  num14 = 111//10
+  print(num14)
+#+end_src
+
+#+RESULTS:
+: 11
+
+**** Modulus
+#+begin_src python
+  # modulus computes the remainder of the division between 2 number, and is represented by %
+  num15 = 111 % 6
+  print(num15)
+  print(10 % 4)
+#+end_src
+
+#+RESULTS:
+: 3
+: 2
+
+**** Absolute Value
+#+begin_src python
+  # abs() returns positive numbers
+  print(abs(-1553))
+#+end_src
+
+#+RESULTS:
+: 1553
+
+**** Divmod
+#+begin_src python
+  # returns the qutient and remainder of the division between 2 numbers
+  divmod(120, 6)
+#+end_src
+
+#+RESULTS:
+
+*** Assignment Operator Variants
+**** additive assignment
+#+begin_src python
+  # += assignment operator, increment the number by a value
+  num15 = 100
+  num15 += 1
+  print(num15)
+#+end_src
+
+#+RESULTS:
+: 101
+
+**** subtractive assignment
+#+begin_src python
+  # decrementing num15 by 5: num15 -= 5
+  num16 = 200
+  num16 -= 5 # num16= num16 - 5
+  print(num16)
+#+end_src
+
+#+RESULTS:
+: 195
+
+**** multiplicative assignment
+#+begin_src python
+  # multiplicative assignment
+  num17 = 2
+  num17 *= 3
+  print(num17)
+
+  # power assignment
+  num18 = 4
+  num18 **= 3
+  print(num18)
+#+end_src
+
+#+RESULTS:
+: 6
+: 64
+
+**** quotient assignment
+#+begin_src python
+  # quotient assignment
+  num20 = 10
+  num20 /= 5
+  print(num20)
+#+end_src
+
+#+RESULTS:
+: 2.0
+
+** Strings
+*** String Literals
+#+begin_src python :tangle no
+str1 = 'Bloomsburg University of Pennsylvania'
+#+end_src
+
+#+RESULTS:
+
+*** Indexing
+To access a string use [ start index : end index ]
+#+begin_src python
+  str1 = "Bloomsburg University of Pennsylvania"
+  # access the string index 0 to 6
+  print(str1[0:6])
+  # access the characters starting at index 6 and ending at index 15
+  print(str1[6:15])
+  # display the first 20 characters
+  print(str1[:20])
+  # some equivalent statements
+  print(str1[:])
+  print(str1)
+  # displaying of string characters starting from the end of the string, we use negative indices
+  print(str1[-5:]) # last 5 characters
+  # display the characters at index 1 from the end
+  print(str1[-12:-1])
+#+end_src
+
+#+RESULTS:
+: Blooms
+: burg Univ
+: Bloomsburg Universit
+: Bloomsburg University of Pennsylvania
+: Bloomsburg University of Pennsylvania
+: vania
+: Pennsylvani
+
+*** Length of a String
+#+begin_src python
+# to count the characters of a string, we apply the length function len()
+str2="Bloomsburg University! of Pennsylvania"
+# get the length of the string
+getLength= len(str2)
+print("the length of the str2 is ", getLength)
+#+end_src
+
+#+RESULTS:
+: the length of the str2 is  38
+
+*** Strip
+#+begin_src python
+# strip() function is used to remove the white spaces from the beginning and the end of a string
+str3=" Hello Python Progammers "
+print("The first character is ", str3[0])
+# apply strip() function
+str4=str3.strip()
+print(" the first character or letter in the string str4 is ", str4[0])
+#+end_src
+
+#+RESULTS:
+: The first character is   
+:  the first character or letter in the string str4 is  H
+
+*** Convert to upper or lower case
+#+begin_src python :eval none
+str5="BLOOMSBURG UNISVERSITY"
+# convert upper case letters to lower case letter, low() is applied on the string
+str6=str5.lower()
+print(str6)
+# to convert lower case letters to upper case letters, we apply upper() function
+print(str2.upper())
+#+end_src
+
+#+RESULTS:
+
+*** Replace Characters
+#+begin_src python
+# replace("old character", "new character") function replaces old character with a new character
+# exercise replace the character "o" in str2 by a character "D"
+print(str2.replace("o", "G"))
+# replace Bloomsburg by Bloom
+print(str2.replace("Bloomsburg", "Bloom"))
+#+end_src
+*** Split Strings
+#+begin_src python
+# split() split the string into substrings
+print(str2.split())
+# split the string based on a specific character
+print(str2.split("!"))
+# split  str2 when it finds character "y"
+print(str2.split("y"))
+#+end_src
+
+#+RESULTS:
+
+*** In operator
+#+begin_src python
+# in operator is used to search a string
+searchStr="Bloom "  not in str2
+print(searchStr)
+#+end_src
+*** Format Function
+#+begin_src python
+print("COMPSCI 115" + " "+ "is a Python Progamming course")
+str7="{} COMPSCI "
+num16= 115
+# print(str7+num16) this will cause an error because we cannot concatenate a string with an integer
+# in this case we apply a format() function, place {} where you want to add the number to the string
+print(str7.format(num16))
+str8= "COMPSCI {1}  is given in Fall {0}  and Spring {2}  "
+courseNum=115
+year1= 2021
+year2=2022
+print(str8.format(year1, courseNum, year2)) # year1 argument is at position 0, courseNum is at position 1 and year2 is at position2
+#+end_src
+** Logical Operators
+
+#+begin_src python
+  x = 100 # we assign 100 to a variable x
+  x==100 # x is equal to 100
+  # Comparison operators
+  # < less than
+  # > great than
+  # < = less than or equal
+  # >= greater than or equal
+  # == equal
+  # Boolean data type has only two values False and True only
+  print(" the comparison of the values returns ",1000 != 1500)
+#+end_src
+
+** Practice Exercise
+#+begin_src python
+p# Question 1
+# getting the input form the user and converting it to an integer
+"""
+for i in range(3):
+    num= int(input("Enter an integer: "))
+    print(num, " in the binary system is ", bin(num))
+# convert the integer to a binary
+"""
+
+"""
+# Question 2
+# getting float values from the users and convert them to integers
+floatNumber=float(input("Enter a float Number: "))
+
+#convert FloatNumber to an integer
+integerNumber= int(floatNumber)
+print(floatNumber, " is  ",integerNumber, " as an integer")
+"""
+
+# Question 3
+# a) create a variable and get the length of the string
+string1="Department of Mathematical and Digital Sciences, Bloomsburg University of Pennsylvania"
+print("the length of the string1 is ",len(string1), " characters")
+# b) display characters between indices 10 and 30
+print("the characters between indices 10 and 30 are:\n", string1[10:30])
+print("the lower case letters of the string are as follow: \n", string1.lower())
+# c) display all characters in upper case
+print(" the upper case letters of the string are as follow: \n", string1.upper())
+# d) replace letter "e" by letter "O"
+print("we replace letter \"e\" by letter \"O\": \n ", string1.replace("e","O"))
+
+# Question 4
+string2="Bloomsburg University of Pennsylvania was established as Bloomsburg Academy in {}. In {}  it was renamed {}Bloomsburg Literary Institute {}"
+year1=1839
+year2=1856
+year3=1990
+print(string2.format(year1, year1, year1, year2 ))
+# Question 5
+# calculate the surface area of a cube
+# get the side length from the user
+side= input("enter the side length of a cube ")
+for i in side:
+    if i==".":
+        decimalPoint=side.index(".")
+        print(" the index of decimal is ", decimalPoint)
+        while len(side[decimalPoint+1:])>2:
+            side = input(" enter again the side length of a cube and you should use 2 digits after decimal point ")
+            if len(side[decimalPoint+1:])<2:
+                break;
+
+
+floatinput=float(side)
+
+area = pow(floatinput, 2)
+surface = 6 * area
+print(" the total surface areas of a cube of edge length", side, " is ", round(surface, 2))
+
+#  area of one side
+#area= pow(side,2)
+# surface of the cube
+#+end_src
+* Module 3: Control Statements
+:PROPERTIES:
+:header-args: :tangle ./Module_3/lecture.py 
+:END:
+** If Statements
+#+begin_src python :eval no
+# if control  statement
+
+num1 = 8
+num2 = 8
+if num1 > num2:
+    print(" this is true 9>8")
+    print(" that's great!")
+# if the condition of the if statement is not true, then I want my program to go in another direction, in this case we use elif statement
+elif num1 < num2:
+    print( num1, " is less than ", num2)
+elif num1==num2:
+    print(num1, " is equal to ", num2)
+print(" the program execution is completed!")
+
+# else conditional statement is used  if none of the above conditions work
+num3 =int(input(" Enter the first number >>>> "))
+num4 =int(input(" Enter the second number >>>>"))
+if num3 < num4:
+    print(num3,"  is less than", num4)
+elif num3> num4:
+    print(num3,"  is greater than", num4  )
+else:
+    print(" both", num3,  num4,  " are  equals")
+
+num5=600
+num6=700
+if num5<num6: print(" num5 is less than num6")
+
+# shorthand for if ... else statement
+
+num7=100
+num8= 170
+print( num7, "is less than ", num8) if num7< num8 else print(num7,"is not less than  ",num8)
+#+end_src
+
+#+RESULTS:
+
+** Iteration
+#+begin_src python :eval none
+# while loop to execute the statements many times through iterations as long as the condition true
+# you need to create a counter and initiliaze it
+
+i=0
+while i <50:
+
+    print(" Hello Programmers", " at iteration", i)
+    i+=7 #  this means i=i-7
+
+# break statement is used to stop the while loop execution even the condition still
+
+j=-1
+while j<50:
+    j+=1
+    if j==10:
+        break
+    print(j)
+
+# for loop is used to iterate a block of codes, you dont need to use any counter
+print()
+list =(2,5,6,8,9,10)
+for i in list:
+    print(i) # i represent each character in the string
+
+for i in range(10):
+    print("Hello Programmers at iteration", i)
+
+inputNumber=input(" Enter a float number and make sure to take two digits after decimal points: ")
+for i in inputNumber:
+    if i==".":
+        decimalPoint=inputNumber.index(i)
+        while len(inputNumber[decimalPoint+1:])>2:
+            inputNumber=input("try again to enter two digits after decimal point")
+            if len(inputNumber[decimalPoint+1:])<2:
+                break
+
+print(float(inputNumber))
+#+end_src
+
+#+RESULTS:
+
+** Iteration Continued
+:PROPERTIES:
+:header-args: :tangle ./Module_3/lecture_part2.py
+:END:
+#+begin_src python
+  num1= 2
+  while num1>5:
+      print(" hello Programmers")
+
+  # continue statement is used with an If statement within a loop to skip a particular iteration
+
+  # range() function generates  numbers between range of values example range(10); this will generates numbers between 0 and 9
+  """
+  x= -1
+  while x<9:
+      x = x + 1
+      if x>=3 and x<=7: # is the same if we 3<=x<=7
+          continue
+      print(" the value of counter is  ", x)
+  """
+  #break statement is used to break the loop even the condition is true
+  # break the loop at iteration 5
+  y=-1
+  while y<20:
+      y+=1
+      if y==10:
+          break
+      print(y)
+  else:
+      print(" the loop is over")
+  # you can use else statement with while loop
+  # for variablename  in Valuesrange
+  str1="Bloomsburg University"
+  for x in str1:
+      print(x)
+
+  # use for loop with numeric values
+  for  i in range(100):
+      print("COMPSCI 115 at iteration", i)
+
+  print()
+  m=-1
+  while m<99:
+      m+=1
+      print("COMPSCI 115 at iteration", m)
+
+  # range() function could up to three arguments
+  # range(oneValue), it will generate numbers between 0 and oneValue excluding oneValue
+  # range(start, end) function receives two arguments, start value is the starting value of the range and end is the end value of the range
+  # example generate numbers between 50 and 100
+  print()
+  for  num3 in range(50,101):
+      print(num3)
+
+  # if you want the step between numbers in the range(), you need add three arguments
+  for num4 in range(1000, 1200, 8):
+      print(num4)
+  # nested for loops: we have two loops, one inside the other
+  color=["White","Black", "Blue"]
+  car=["Honda", "BMW", "Mercedes"]
+  for x in color:
+      for y in car:
+          print(x,y)
+
+  for s in range(80):
+      if s==50:
+          continue
+      print(s)
+  # example show all values between 0 and 80 except odd values (i.e. display even values)
+  # dislay even number between 0 and 10
+  for j in range(10):
+      if (j%2!=0):
+          print(j," is an odd")
+
+
+  # display even numbers
+  for k in range(80):
+      if k%2!=0:
+          continue
+      print(k," is an even number")
+  # display odd numbers
+  for l in range(80):
+      if l%2==0:
+          continue
+      print(l," is an odd number")
+#+end_src
+
+#+RESULTS:
+: None
+
+
+* Module 4: Functions
+:PROPERTIES:
+:header-args: :result output :tangle ./Module_4/lecture.py
+:END:
+
+
