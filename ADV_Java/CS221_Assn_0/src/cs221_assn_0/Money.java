@@ -53,4 +53,36 @@ public class Money
     {
         return balance;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 71 * hash + (int) (Double.doubleToLongBits(this.balance) ^ (Double.doubleToLongBits(this.balance) >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Money other = (Money) obj;
+        if (Double.doubleToLongBits(this.balance) != Double.doubleToLongBits(other.balance)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Money{" + "balance=" + balance + '}';
+    }
+    
+    
 }

@@ -1,10 +1,12 @@
 package pack;
 
+import java.util.Objects;
+
 /**
  * This Class represents a person's name.
  * @author Matthew Yackiel
  */
-public class Name 
+public class Name
 {
     private final String firstName;
     private final String lastName;
@@ -13,27 +15,10 @@ public class Name
     private final String suffix;
     
     /**
-     * the default constructor, fields default to empty strings
-     */
-    public Name()
-    {
-        this("", "", "");
-    }
-    
-    /**
-     * Copies an object of type Name into a new object of type Name
-     * @param name 
-     */
-    public Name(Name name)
-    {
-        this(name.firstName, name.lastName, name.middleName, name.salutation, name.suffix);
-    }
-    
-    /**
      * The minimal information constructor, salutation and suffix are empty
-     * @param first, the first name
-     * @param last, the last name
-     * @param middle, the middle name
+     * @param first the first name
+     * @param last the last name
+     * @param middle the middle name
      */
     public Name(String first, String last, String middle)
     {
@@ -42,10 +27,10 @@ public class Name
     
     /**
      * Initializes the "required" data (first, last, middle)name and the salutation
-     * @param first, the first name
-     * @param last, the last name
-     * @param middle, the middle name
-     * @param salu, the salutation
+     * @param first the first name
+     * @param last the last name
+     * @param middle the middle name
+     * @param salu the salutation
      */
     public Name(String first, String last, String middle, String salu)
     {
@@ -54,11 +39,11 @@ public class Name
     
     /**
      * Initializes all fields
-     * @param first, the first name
-     * @param last, the last name
-     * @param middle, the middle name
-     * @param salu, the salutation
-     * @param suf, the suffix
+     * @param first the first name
+     * @param last the last name
+     * @param middle the middle name
+     * @param salu the salutation
+     * @param suf the suffix
      */
     public Name(String first, String last, String middle, String salu, String suf)
     {
@@ -70,7 +55,6 @@ public class Name
     }
     
     /**
-     * Returns the first name
      * @return a string representing the first name
      */
     public String getFirstName() 
@@ -79,7 +63,6 @@ public class Name
     }
     
     /**
-     * Returns the last name
      * @return a string representing the last name
      */
     public String getLastName() 
@@ -88,7 +71,6 @@ public class Name
     }
 
     /**
-     * Returns the middle name
      * @return a string representing the last name
      */
     public String getMiddleName() 
@@ -97,7 +79,6 @@ public class Name
     }
 
     /**
-     * Returns the salutation
      * @return a string representing the salutation
      */
     public String getSalutation() 
@@ -106,7 +87,6 @@ public class Name
     }
 
     /**
-     * Returns the suffix
      * @return a string representing the suffix
      */
     public String getSuffix() 
@@ -115,13 +95,41 @@ public class Name
     }
     
     /**
-     * Returns a String representation of the Name object
-     * @return 
+     * @return a string representing the name, in the standard order.
      */
-    public String toString()
-    {
-        return salutation + " " + firstName + " " + middleName + " " + lastName
-                + " " + suffix;
+    @Override
+    public String toString() {
+        return "Name{" + "firstName=" + firstName + ", lastName=" + lastName + 
+                ", middleName=" + middleName + ", salutation=" + salutation + 
+                ", suffix=" + suffix + '}';
+    }
+
+    /**
+     * @return the object's hashcode, based on firstName, and lastName.
+     */
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 89 * hash + Objects.hashCode(this.firstName);
+        hash = 89 * hash + Objects.hashCode(this.lastName);
+        return hash;
+    }
+
+    /**
+     * @param obj the object being compared to
+     * @return this == obj
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        final Name other = (Name) obj;
+        if (!Objects.equals(this.firstName, other.firstName)) return false;
+        if (!Objects.equals(this.lastName, other.lastName)) return false;
+        if (!Objects.equals(this.middleName, other.middleName)) return false;
+        if (!Objects.equals(this.salutation, other.salutation)) return false;
+        return Objects.equals(this.suffix, other.suffix);
     }
     
     /**
@@ -138,20 +146,14 @@ public class Name
         String suff = "Esq.";
         
         // Testing the constructors
-        Name default_cons = new Name();
         Name first_cons = new Name(first, last, middle);
         Name second_cons = new Name(first, last, middle, salu);
         Name third_cons = new Name(first, last, middle, salu, suff);
         
         // Testing toString overload and output from constructors
-        System.out.println("Default: " + default_cons);
         System.out.println("first: " + first_cons);
         System.out.println("second: " + second_cons);
         System.out.println("third: " + third_cons);
-        
-        // Copy constructor
-        default_cons = first_cons;
-        System.out.println("default_cons (after copy cons): " + default_cons);
         
         // Testing the getter methods
         System.out.println("getFirst: " + third_cons.getFirstName());
@@ -160,5 +162,5 @@ public class Name
         System.out.println("getSalutation: " + third_cons.getSalutation());
         System.out.println("getSuffix: " + third_cons.getSuffix());
     }
-    
+
 }

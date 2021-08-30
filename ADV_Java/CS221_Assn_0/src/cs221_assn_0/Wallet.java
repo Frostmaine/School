@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Wallet
 {
     private final static String denominations[] = { "Pennies", "Nickles", "Dimes", "Quarters", "Ones", "Fives", "Tens", "Twenties" };
-    private ArrayList<Currency> money;
+    private ArrayList<Currency> money; // ArrayList holding the currency
     private Money balance;
     
     /**
