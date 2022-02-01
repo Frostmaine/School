@@ -1,0 +1,76 @@
+
+
+* Assembly Commands and How they Work
+
+** ~ldr to, from~
+This instruction is used to load data from a register
+
+** ~str from, to~
+This instruction is used to store date into a register
+
+** ~mov to, from~
+Used to copy data from an origin register to a destination register
+
+
+** Base Register Addressing Modes
+*** ~ldr x0, [x1]~ (Direct Addressing)
+This references the address of x1 instead of the stored value
+*** ~ldr x0, [x1, #16]~ (Direct Addressing with an Offset)
+This references the address of x1 offset by the constant
+*** ~ldr x0, [x1, #16] !~ (Pre-Increment)
+This stores the data at x1 + 16, into x1 before loading the data from x1 into x0.
+*** ~ldr x0, [x1], #16~ (Post-Increment)
+This does something similar to the above but loads the value at x1 first before offsetting by 16
+*** ~ldr x0, [x1, x2]~ (Offset by Index Register)
+x1 is offset by x2 before loading into x0
+
+*** ~ldr x0, [x1, x2, lsl 3]~ (x1 + ( x2 << 3 )
+does the same as the above but first does a bitwise shift to the left 3 units on x2
+
+
+** Data Processing
+*** ~add dest, op_1, op_2~ dest = op_1 + op_2
+*** ~sub dest, op_1, op_2~ dest = op_1 - op_2
+*** ~rsb dest, op_1, op_2~ dest = op_2 - op_1
+*** ~mul dest, op_1, op_2~ dest = op_1 * op_2
+*** ~sdiv dest, op_1, op_2~ dest = op_1 / op_2 (signed 64 bit) can have overflow
+*** ~udiv dest, op_1, op_2~ dest = op_1 / op_2 (unsigned 32 bit)
+
+**
+
+
+
+** Example Echo Program
+       // Asm-based "echo" program
+
+           .bss        // a.k.a. "data segment"
+           .balign 4
+           .lcomm entlen, 8    // space for a long int
+       .set MAXSIZE, 32        // "reasonable" buffer size
+           .lcomm buffer, MAXSIZE      // space for the keyboard input
+
+           .text
+      bufaddr:        .dword  buffer  // storage for entered characters
+      entaddr:        .dword  entlen  // # of characters entered
+
+          .global main
+      main:
+
+      // get input:
+          mov  x0, 0
+          ldr  x1, bufaddr    // "Immediate" address mode
+          mov  x2, #MAXSIZE
+          mov  x8, 0x3f
+          svc #0
+          ldr  x1, entaddr
+          str  x0, [x1]       // "Register-direct" address mode
+
+         // code here might change x0, x1, x2, ...
+
+      // echo it back:
+          ldr  x1, entaddr    // don't count on x1 being correct
+          ldr  x2, [x1]       // retrieve the # of characters entered
+                              // Could have been "mov x2, x0" more simply
+
+
+** Example Program with Branching

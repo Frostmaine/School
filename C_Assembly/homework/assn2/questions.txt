@@ -1,0 +1,42 @@
+Matthew Yackiel
+Assignment 2
+9-13-2021
+
+#1. The numerical types needed the & operator.
+
+#2. The second word disappears and the input for the numbers is skipped. Presumably the second word is
+    interpretted as the integer input.
+
+#3. Yes it does.
+
+#4. I got a negative number, presumably do to data overflow.
+
+#5. the ascii index of the humber
+
+#6. I got -350973280 0 -1347290873. The outputs seem to have no rhyme or reason.
+
+#7. It printed the memory location of the data. I imagine 0x just denotes the value as a hexadecimal vlaue.
+
+#8. -273.15 C, -491.67 F
+
+#9. 5537.78 C
+    5810.93 K
+
+#10. 233.14 K when C & F = -40
+
+#11. The function outputs significantly higher values than expected
+Min, Max Temperature: -8 8
+Min, Max Wind: 0 20
+T \ W    0.0     5.0    10.0    15.0    20.0    
+   \    -----   -----   -----   -----   -----   
+-8 |   30.77    -19.91  -25.85  -29.64  -32.49  
+-6 |   32.01    -17.56  -23.37  -27.08  -29.87  
+-4 |   33.25    -15.21  -20.89  -24.52  -27.24  
+-2 |   34.50    -12.86  -18.41  -21.96  -24.62  
+0  |   35.74    -10.51  -15.93  -19.40  -22.00  
+2  |   36.98    -8.16   -13.46  -16.84  -19.37  
+4  |   38.23    -5.81   -10.98  -14.27  -16.75  
+6  |   39.47    -3.46   -8.50   -11.71  -14.12  
+8  |   40.71    -1.11   -6.02   -9.15   -11.50  
+
+#12. An error is thrown marking an endefined reference to pow, with an exit status of 1. 

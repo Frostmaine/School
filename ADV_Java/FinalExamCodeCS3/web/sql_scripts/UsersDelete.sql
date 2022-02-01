@@ -1,0 +1,1 @@
+DELETE FROM mty87392.User WHERE UserID > 2

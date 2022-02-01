@@ -1,0 +1,4 @@
+Enter 3 integers: ( 59 + 30 ) / 2 equals  44 ???
+Enter 3 integers: ( 50 + 5 ) / 5 equals  11 ???
+Enter 3 integers: ( 99 + 1 ) / 10 equals  10 ???
+Enter 3 integers: ( 99 + 1 ) / 10 equals  10 ???

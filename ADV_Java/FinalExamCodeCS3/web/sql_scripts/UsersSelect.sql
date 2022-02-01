@@ -1,0 +1,1 @@
+select * from mty87392.User

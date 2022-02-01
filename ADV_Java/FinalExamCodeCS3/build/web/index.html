@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Welcome Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .content {
+                max-width: 500px;
+                margin: auto;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <h2>Please Enter your First and Last Name and your Birthday</h2>
+            <form method="post" action="sqlGateway">
+                <input type="hidden" value="sqlGatewayLogin" name="action">
+                First Name: <input type="text" id="first_name" name="first_name" required> <br><br>
+                Last Name:  <input type="text" id="last_name" name="last_name" required> <br><br>
+                Birthday: <input type="date" id="birthday" name="birthday" value="1997-03-31" required> <br> <br>
+                <input type="submit" value="login">
+            </form>
+        </div>
+    </body>
+</html>

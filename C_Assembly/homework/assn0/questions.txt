@@ -1,0 +1,27 @@
+Matthew Yackiel
+CS 240 - assn0
+
+1. helloA   17144 bytes
+   helloA.o 3512  bytes
+   helloA.c 222   bytes
+
+2. helloB.c is 255 bytes, which is slightly larger than helloA.c
+
+3. helloB.o is 3512 bytes, this is the same size as helloA.o 
+
+4. helloB is again 17144 bytes. It is identical in size to helloA.
+
+5. The macro does not affect the size of the executable.  I imagine the
+   compiler is smart enough to recognize both programs as simple output statements
+   and converts them to the same code.
+
+
+6. hellC.c is 254 bytes, it is almost the same size as helloB.c but still larger
+   than helloA.c
+
+7. helloC.o is 3744 bytes, which is significantly larger than either of the
+   prior .o files.
+
+8. helloB and helloA are the same size, while helloC is a few hundred bytes larger.
+
+9. Using an array of characters clearly makes the executable larger.

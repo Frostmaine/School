@@ -1,0 +1,29 @@
+#1. fputs is doing the outputs
+
+#2 fgets is doing the inputs
+
+#3. the an extra new line character occurse because <ENTER> is pressed causing a newline to be written.
+
+#4. A sixty character sentence.
+
+#5. The string gets cut off after the array is filled.
+
+#6. printf is being used for all outputs
+
+#7. scanf is being used for all inputs
+
+#8. input: 5 6 7,   output:  ( 5 + 6 ) / 7 equals  1 ???  I would expect 11/7 or 1.57. 
+
+#9. It would seem c does notintuitively convert the integer output to a floating point value, so it simply returns the integer 1.
+
+#10. The output in the results.txt file gets overwritten after each execution.
+
+#11. Now i see each output added to the end of the file after each execution.
+
+#12.  the second nine was never read by a scanf statement of it's own, so the program didnt store it.
+
+#13. the file grows larger with each execution, since the output is appended to the file.
+
+#14. The initial prompt gets lost in the redirection so I doubt it is nescessary.  The only argument I could see for including it, is for covering the rare case when we want a prompt.
+
+#15. the results file would be overwritten by the new outputs on each successive run.

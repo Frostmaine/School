@@ -1,0 +1,16 @@
+    public static void main(String args[]){
+        
+        double amount = 33.33;
+        Money myMoney = new Money (amount);
+        // Normal tests here
+        final int STOP_VALUE =1000000001;
+        //test for why we can't use double precision goes here 
+        for (int i = 1; i<STOP_VALUE; i++){
+            amount += 0.33;
+            myMoney.earn(0.33);
+        }
+        
+        System.out.println("Double precision is "+ NumberFormat.getCurrencyInstance().format(amount));
+        System.out.println("BigDecimal precision is "+ myMoney);
+        System.out.println("Exact precision is "+ NumberFormat.getCurrencyInstance().format(new BigDecimal(33.33).multiply(new BigDecimal(STOP_VALUE)).doubleValue()));
+    }

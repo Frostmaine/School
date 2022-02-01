@@ -1,0 +1,40 @@
+
+Matthew Yackiel
+CompSci 240
+12-7-2021
+
+1. 167
+
+2. -89
+
+3. 39
+
+4. 2B
+
+5. 11111111011001001110011100000011
+
+6. has 32 general purpose 64 bit registers, one of which is the zero register.
+
+8. r0-r7 are used for inputs and outputs
+
+7. x16 and w16 share the same address but hold different amounts of data. The x register holds 64 bits, but the w register holds 32 bits. 
+
+9. bl is the branch with link function. It copies the address of the next instruciton into lr the link register causing a branch with label.
+
+   RET is similar in that it branches to an addressed register, but is hinted to be a return command.
+
+10. a. it is the subtraction command x0 recieves the result of x1 - x0
+    b. only the lines that have an ldr command or a store command
+    c. they are both branch statements which give functional flow control to the program
+    d. movz x0, #01
+       movz x8, #0x40
+       svc #0
+
+       essentially lines 39-40 and 32-34
+       
+    e. they compare the value of w2 to zero in a similar vain as the standard strcmp in C language.
+       if w2 is not equals to zero then it continues to loop the strlen_loop in both cases.
+
+    f. first sp's address has 48 deducted from it after that sp-48 is stored in x29
+       and x30 is stored in the folowing block.  The regegister is essentially pre indexed .
+

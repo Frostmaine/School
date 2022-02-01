@@ -1,0 +1,1 @@
+DROP TABLE mty87392.User
