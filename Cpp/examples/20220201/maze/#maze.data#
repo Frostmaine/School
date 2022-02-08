@@ -1,9 +1,0 @@
-// test file for maze data
-// 2-22-02-2022
-#include <iostream>
-#include <fstream>
-
-int main(int argc, char** argv)
-{
-
-  
