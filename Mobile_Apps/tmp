@@ -1,0 +1,49 @@
+public class GameController {
+	void runGame() {
+
+		Scanner sc = new Scanner(System.in);
+
+		sout "Please select a Game mode (PVP, PVC, CVP) (1, 2, 3)";
+
+		int game = sc.nextInt();
+		GAMEMODE mode;
+		AIMODE aiMode;
+		switch ( game ) :
+		case 1
+			mode = PVP
+		case 2
+			mode = PVC
+		case 3
+			mode = CVP
+
+		if a computer is involved
+		sout "Please select an AI mode (GREEDY, RANDOM) (1, 2)"
+		
+		int ai = nextInt();
+		switch ( ai ) :
+		case 1
+			aiMode = GREEDY
+		case 2
+			aiMode = RANDOM
+
+		sout How big is the board?
+		get inputs for board dimensions
+
+		sout How many rounds?
+		get inputs for the number of rounds
+
+		Game game = new Game(dimensions, rounds, game mode, ai type)
+
+		/* game loop here */
+		if PVP
+			while (true) { alternate turns }
+		if CVP 
+			while (true) { start with cpu then alternate between player turns and ai turns }
+		else
+			while (true) { start with player input then alternate between cpu and player}
+
+		constantly check if game is finished, if so output the result		
+		
+		Game game = new Game ( parameters in here );
+	}
+}
